@@ -133,8 +133,13 @@ it is off the SDK is never started at all, rather than started and silenced. Ple
 consequence: <em>crash reports travel through the same SDK, so switching analytics off also stops
 crash reports.</em> There is no second channel that stays on.</p>
 
-<p><strong>Retention.</strong> Analytics and crash events are kept for no longer than 12 months and
-are then deleted.</p>
+<p><strong>Retention.</strong> Events are held by PostHog on their EU infrastructure. On the plan we
+use, PostHog guarantees to retain them for one year. We want to be precise about what that means,
+because it is a guarantee to <em>keep</em> data rather than a promise to destroy it: we cannot tell
+you that a given event is erased on a fixed date. What we can tell you is that we never export
+events or copy them anywhere else, that we hold no second store of our own, and that you can stop
+new events being created at any moment in Settings &rarr; Privacy. If you want data erased rather
+than left to age, see <a href="../delete-data/">Deleting your data</a>.</p>
 
 <h2>Approximate location, once, at first launch</h2>
 <p>The first time you open Nowline it tries to pre-select a sensible first city for you. To do that
@@ -203,9 +208,10 @@ national data protection authority.</p>
 <p>One honest limitation follows from having no accounts: analytics events carry only a random
 device identifier, and we have no way to connect it to you, your email or your device. This is
 processing that does not require identification (Art. 11 GDPR). In practice, turning analytics off
-in Settings stops all further collection immediately, and events already collected are deleted on
-the retention schedule above. See <a href="../delete-data/">Deleting your data</a> for the full
-picture.</p>
+in Settings stops all further collection immediately, and events already collected stay where they
+are — in our provider's EU storage, never copied out — under the retention described above. See
+<a href="../delete-data/">Deleting your data</a> for the full picture, including how to ask us to
+erase them.</p>
 
 <h2>Changes to this policy</h2>
 <p>If this policy changes we will update this page and the effective date at the top. Changes that
