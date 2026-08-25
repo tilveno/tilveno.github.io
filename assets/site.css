@@ -39,3 +39,9 @@ footer{border-top:1px solid #e6e9ee;background:#f3f5f8;padding:44px 0 36px;font-
 .fcols ul a{color:#5c6470}
 .legalline{margin-top:32px;padding-top:20px;border-top:1px solid #e2e5ea;font-size:13.5px;color:#7a828e}
 @media(max-width:640px){.nav ul{gap:16px}.nav ul a{font-size:13.5px}h1{font-size:30px}.kv div{grid-template-columns:1fr;gap:2px}}
+.appheader{display:flex;align-items:center;gap:22px;margin-bottom:22px}
+.appheader h1{margin-bottom:2px}
+.appicon{width:84px;height:84px;border-radius:19px;flex:0 0 auto;box-shadow:0 2px 12px oklch(0.42 0.09 255 / 0.16)}
+.subtitle{font-size:19px;font-weight:500;letter-spacing:-0.01em;color:#6a7280}
+.faq h3{font-size:17px;margin:28px 0 10px;letter-spacing:-0.01em}
+@media(max-width:640px){.appheader{gap:16px}.appicon{width:62px;height:62px;border-radius:14px}}
