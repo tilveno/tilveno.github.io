@@ -34,7 +34,11 @@
 <div class="appheader">
 <img class="appicon" src="../../assets/nowline-icon.png" width="84" height="84" alt="Nowline app icon">
 <div>
-<h1>Nowline</h1>
+<!-- The wordmark, not the name: NowLine here is lettering, and every string on
+     this page stays Nowline. One span per letter because the kerning is solved
+     per pair -- see assets/site.css. aria-label carries the name so a screen
+     reader says "Nowline" rather than spelling out seven spans. -->
+<h1 class="wordmark" aria-label="Nowline"><span>N</span><span>o</span><span>w</span><span>L</span><span>i</span><span>n</span><span>e</span></h1>
 <div class="subtitle">Time zones on one timeline</div>
 </div>
 </div>

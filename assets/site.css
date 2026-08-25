@@ -45,3 +45,25 @@ footer{border-top:1px solid #e6e9ee;background:#f3f5f8;padding:44px 0 36px;font-
 .subtitle{font-size:19px;font-weight:500;letter-spacing:-0.01em;color:#6a7280}
 .faq h3{font-size:17px;margin:28px 0 10px;letter-spacing:-0.01em}
 @media(max-width:640px){.appheader{gap:16px}.appicon{width:62px;height:62px;border-radius:14px}}
+/* The Nowline wordmark: NowLine set in Outfit at weight 450. This is the second
+   and last family on the site, and it sets the mark and nothing else.
+   outfit-450-nowline.ttf is the app's own assets/fonts/Outfit.ttf, instanced at
+   450 and subset to the seven letters of the mark -- it will render nothing
+   else. Same file as the app on purpose: the kerning below was solved against
+   this build. SIL OFL, licence text in OFL-Outfit.txt beside it. */
+@font-face{font-family:'Outfit';src:url('outfit-450-nowline.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+/* Optical kerning, in em, applied after each character. These are the
+   generator's numbers (tool/gen/generate_brand_assets.py DRAW_SPACING), not the
+   app's: Flutter applies Outfit's own kerning across span boundaries and a
+   browser does not, so `ow` carries the full -0.0200 here where the app carries
+   -0.0070. Both put the glyph in the same place. Global tracking of -0.020 is
+   already folded into every value. */
+.wordmark{font-family:'Outfit','Instrument Sans',Helvetica,Arial,sans-serif;font-weight:400;font-kerning:none;letter-spacing:0;white-space:nowrap}
+.wordmark span:nth-child(1){letter-spacing:-0.0091em}
+.wordmark span:nth-child(2){letter-spacing:-0.0200em}
+.wordmark span:nth-child(3){letter-spacing:-0.0275em}
+.wordmark span:nth-child(4){letter-spacing:-0.0100em}
+.wordmark span:nth-child(5){letter-spacing:0.0247em}
+.wordmark span:nth-child(6){letter-spacing:0.0125em}
+/* The last letter carries 0 and inherits it: letter-spacing is added *after* a
+   character, so a value there would hang empty space off the end of the mark. */
