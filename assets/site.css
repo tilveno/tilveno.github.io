@@ -45,7 +45,7 @@ footer{border-top:1px solid #e6e9ee;background:#f3f5f8;padding:44px 0 36px;font-
 .subtitle{font-size:19px;font-weight:500;letter-spacing:-0.01em;color:#6a7280}
 .faq h3{font-size:17px;margin:28px 0 10px;letter-spacing:-0.01em}
 @media(max-width:640px){.appheader{gap:16px}.appicon{width:62px;height:62px;border-radius:14px}}
-/* The Nowline wordmark: NowLine set in Outfit at weight 450. This is the second
+/* The NowLine wordmark, set in Outfit at weight 450. This is the second
    and last family on the site, and it sets the mark and nothing else.
    outfit-450-nowline.ttf is the app's own assets/fonts/Outfit.ttf, instanced at
    450 and subset to the seven letters of the mark -- it will render nothing
