@@ -11,10 +11,10 @@
 <meta property="og:url" content="https://tilveno.com/apps/nowline/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Tilveno">
-<meta property="og:image" content="https://tilveno.com/assets/og.png">
+<meta property="og:image" content="https://tilveno.com/assets/nowline-og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Tilveno — independent mobile app development">
+<meta property="og:image:alt" content="NowLine — time zones on one timeline">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://tilveno.com/apps/nowline/">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
@@ -51,8 +51,20 @@ instead of doing the arithmetic in your head.</p>
 links will appear here once it is published.</p>
 </div>
 
-<!-- Screenshots go here. Waiting on the device captures — until they exist this section
-     would be an empty frame, so it is deliberately absent rather than stubbed. -->
+<!-- The five store frames, at half the pixels they are uploaded with. They are the
+     listing's own images, not a second set shot for the web: the app repository
+     composes them once and both stores and this page read the same five.
+     Lossless WebP because the frames are drawn, not photographed — flat fills and
+     hairline ticks are what a lossy codec rings around, and lossless costs 81 kB
+     a frame here. The strip scrolls rather than wraps; the overlay line is baked
+     into each image, so alt carries it instead of a caption repeating it. -->
+<div class="shots" role="group" aria-label="NowLine screenshots">
+<img src="../../assets/nowline-01-home.webp" width="600" height="1067" loading="lazy" decoding="async" alt="All your timezones, in sync — five cities on one timeline, each showing the same moment.">
+<img src="../../assets/nowline-02-scrub.webp" width="600" height="1067" loading="lazy" decoding="async" alt="Drag to explore any moment in time — the timeline pulled two hours ahead, every card following.">
+<img src="../../assets/nowline-03-dst.webp" width="600" height="1067" loading="lazy" decoding="async" alt="Daylight Saving Time, visualized — the repeated hour marked on both sides of the red now line.">
+<img src="../../assets/nowline-04-search.webp" width="600" height="1067" loading="lazy" decoding="async" alt="Find any city, offset, or abbreviation — search results for “new”.">
+<img src="../../assets/nowline-05-midnight.webp" width="600" height="1067" loading="lazy" decoding="async" alt="4 themes. 10 languages. — the same five cards in the Midnight theme.">
+</div>
 
 <div class="prose">
 <h2>What it does</h2>

@@ -45,6 +45,18 @@ footer{border-top:1px solid #e6e9ee;background:#f3f5f8;padding:44px 0 36px;font-
 .subtitle{font-size:19px;font-weight:500;letter-spacing:-0.01em;color:#6a7280}
 .faq h3{font-size:17px;margin:28px 0 10px;letter-spacing:-0.01em}
 @media(max-width:640px){.appheader{gap:16px}.appicon{width:62px;height:62px;border-radius:14px}}
+/* The screenshot strip on /apps/nowline/. It scrolls sideways rather than
+   wrapping into the .cards grid: five phone frames laid out in a grid either
+   shrink past the point where the screen inside them reads, or push the page's
+   own prose below two screens of pictures. Three are visible at 960px, and the
+   fourth peeking past the edge is the scroll affordance. No border -- these
+   frames are near-black, and a light rule around one reads as a halo -- the
+   .appicon shadow instead, so icon and screenshots sit on the page the same
+   way. The background is the frames' own top colour (surfMid0), so the box does
+   not flash white while the image loads. */
+.shots{display:flex;gap:16px;overflow-x:auto;margin:32px 0;padding-bottom:10px;scroll-snap-type:x proximity}
+.shots img{flex:0 0 272px;width:272px;height:auto;border-radius:12px;background:#0c0e1b;scroll-snap-align:start;box-shadow:0 2px 12px oklch(0.42 0.09 255 / 0.16)}
+@media(max-width:640px){.shots img{flex:0 0 228px;width:228px}}
 /* The NowLine wordmark, set in Outfit at weight 450. This is the second
    and last family on the site, and it sets the mark and nothing else.
    outfit-450-nowline.ttf is the app's own assets/fonts/Outfit.ttf, instanced at
