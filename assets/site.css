@@ -53,10 +53,51 @@ footer{border-top:1px solid #e6e9ee;background:#f3f5f8;padding:44px 0 36px;font-
    frames are near-black, and a light rule around one reads as a halo -- the
    .appicon shadow instead, so icon and screenshots sit on the page the same
    way. The background is the frames' own top colour (surfMid0), so the box does
-   not flash white while the image loads. */
-.shots{display:flex;gap:16px;overflow-x:auto;margin:32px 0;padding-bottom:10px;scroll-snap-type:x proximity}
-.shots img{flex:0 0 272px;width:272px;height:auto;border-radius:12px;background:#0c0e1b;scroll-snap-align:start;box-shadow:0 2px 12px oklch(0.42 0.09 255 / 0.16)}
-@media(max-width:640px){.shots img{flex:0 0 228px;width:228px}}
+   not flash white while the image loads.
+
+   The scrollbar is hidden. It sat under the frames as a grey slab with nothing
+   else on the page to justify it, and hiding it means the affordance has to come
+   from somewhere else: the next frame is always cut by the right edge, and the
+   two round buttons scroll by exactly one frame. Only the bar is gone -- wheel,
+   trackpad, touch and arrow keys all still scroll the strip, and the buttons are
+   an addition rather than the only way through. */
+.shotstrip{position:relative;margin:32px 0}
+.shots{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x proximity;scroll-behavior:smooth;scrollbar-width:none}
+.shots::-webkit-scrollbar{display:none}
+.shot{flex:0 0 272px;padding:0;border:0;background:none;cursor:zoom-in;scroll-snap-align:start;border-radius:12px;line-height:0}
+.shot img{width:272px;height:auto;display:block;border-radius:12px;background:#0c0e1b;box-shadow:0 2px 12px oklch(0.42 0.09 255 / 0.16)}
+.shot:focus-visible{outline:3px solid oklch(0.42 0.09 255);outline-offset:3px}
+/* The scroll buttons sit over the gutter between frames rather than over a
+   frame, and disappear at the end they would do nothing at. */
+.shotnav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:1px solid #e6e9ee;background:#fff;color:#191d23;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px oklch(0.42 0.09 255 / 0.18);transition:opacity .15s}
+.shotnav[hidden]{display:none}
+.shotnav:hover{background:#f3f5f8}
+.shotnav--prev{left:-14px}
+.shotnav--next{right:-14px}
+.shotnav svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:640px){.shot{flex:0 0 228px}.shot img{width:228px}.shotnav{display:none}}
+
+/* The lightbox. A native <dialog>, so Esc, the backdrop, modality and returning
+   focus to the frame that opened it are the browser's job rather than ours --
+   which is most of why this is sixty lines and not a dependency. */
+/* Centred explicitly rather than left to the UA's margin:auto, which does not
+   land it in the middle here. Filling the viewport also gives the backdrop
+   click a target: anything outside the figure is the dialog itself. */
+.lb{position:fixed;inset:0;width:100vw;height:100vh;max-width:100vw;max-height:100vh;margin:0;border:0;padding:0;background:none;overflow:hidden}
+.lb[open]{display:grid;place-items:center}
+.lb::backdrop{background:oklch(0.16 0.02 255 / 0.82)}
+.lb-fig{display:flex;flex-direction:column;align-items:center;gap:14px;margin:0}
+.lb-img{max-width:min(600px,86vw);max-height:82vh;width:auto;height:auto;border-radius:14px;background:#0c0e1b;display:block}
+.lb-cap{color:#e7eaf0;font-size:16px;line-height:1.45;max-width:min(600px,86vw);text-align:center;margin:0}
+.lb-btn{position:fixed;width:48px;height:48px;border-radius:50%;border:1px solid oklch(1 0 0 / 0.22);background:oklch(1 0 0 / 0.12);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px)}
+.lb-btn:hover{background:oklch(1 0 0 / 0.22)}
+.lb-btn[hidden]{display:none}
+.lb-btn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.lb-prev{left:16px;top:50%;transform:translateY(-50%)}
+.lb-next{right:16px;top:50%;transform:translateY(-50%)}
+.lb-close{right:16px;top:16px}
+body.lb-open{overflow:hidden}
+@media(max-width:640px){.lb-prev{left:8px}.lb-next{right:8px}.lb-btn{width:42px;height:42px}}
 /* The NowLine wordmark, set in Outfit at weight 450. This is the second
    and last family on the site, and it sets the mark and nothing else.
    outfit-450-nowline.ttf is the app's own assets/fonts/Outfit.ttf, instanced at
