@@ -33,7 +33,7 @@
 
 <h1>NowLine — Privacy Policy</h1>
 <div class="prose">
-<p class="muted">Effective date: 24 August 2026 &nbsp;&middot;&nbsp; Version 1.0</p>
+<p class="muted">Effective date: 7 October 2026 &nbsp;&middot;&nbsp; Version 1.1</p>
 
 <p>This policy describes how the <strong>NowLine</strong> mobile app for iOS and Android handles your
 data. NowLine is published by Tilveno, an individual entrepreneur registered in the Republic of
@@ -45,8 +45,11 @@ Armenia.</p>
 <h2>The short version</h2>
 <ul>
 <li>There is no account. NowLine never asks you to sign up, sign in, or give us your name or email.</li>
-<li>Your cards, custom labels and settings stay on your device and are not transmitted anywhere.</li>
-<li>Anonymous usage analytics and crash reports are collected, and you can turn them off in
+<li>Your custom labels and settings stay on your device and are not transmitted anywhere. Analytics
+    do name the city or timezone of a card you add, move or remove — as the app's own index names
+    it, never by your label.</li>
+<li>Anonymous usage analytics, diagnostic logs and crash reports are collected, and you can turn
+    them off in
     <strong>Settings &rarr; Privacy</strong>.</li>
 <li>No advertising, no ad networks, no data brokers. We do not sell personal data.</li>
 </ul>
@@ -55,7 +58,9 @@ Armenia.</p>
 <p>The following never leaves your phone. It is written to the app's private storage — an SQLite
 database and the system preferences store — and is not transmitted to us or to anyone else:</p>
 <ul>
-<li>the timezone cards you add, their order, and any custom labels you give them;</li>
+<li>your list of cards as a whole, its order, and any custom labels you give the cards (the
+    analytics below name one card when it is added, changed or removed; the list is never
+    uploaded);</li>
 <li>your settings: theme, language, 12- or 24-hour clock, haptics, and the flags that remember
     whether you have seen the tutorial and the rating prompt;</li>
 <li>the cached result of the first-launch city lookup described below.</li>
@@ -63,7 +68,7 @@ database and the system preferences store — and is not transmitted to us or to
 <p>We hold no copy of any of it. There is no account to close and no server-side backup. Deleting
 the app removes all of it from your device. See <a href="../delete-data/">Deleting your data</a>.</p>
 
-<h2>Usage analytics and crash reports</h2>
+<h2>Usage analytics, diagnostic logs and crash reports</h2>
 <p><strong>Who processes it.</strong> PostHog, on their European instance
 (<code>eu.i.posthog.com</code>). Analytics and crash data are sent there and are not transferred
 outside the EU by us.</p>
@@ -77,11 +82,22 @@ are: a card added, deleted, reordered or relabelled; a search performed; the tim
 the paywall shown; a purchase succeeded, failed or was restored; the theme, clock format or
 language changed; the outcome of the first-launch location lookup; and how you responded to the
 rating prompt. Each event carries a few technical parameters, such as how many cards you have or
-how many results a search returned.</p>
+how many results a search returned. Events about a card — added, deleted, moved or relabelled —
+name that card: its city or zone as the app's own index names it, its timezone, and a random
+identifier of the card.</p>
 
-<p><strong>What is never sent.</strong> The names of the cities on your cards, the custom labels you
-write, and the text you type into search. A search event records the <em>length</em> of the query
-and the number of results, never the query itself.</p>
+<p><strong>Diagnostic logs.</strong> The app also sends a log of what happens in it, so that a
+defect can be followed from launch to the moment it occurred: how long startup took, screens
+opened, buttons tapped, settings changed (the old and the new value), searches (the length of the
+query and the number of results), how the location lookup went (whether it answered and how long
+it took — not the city or zone it found), and the store's answers during a purchase. Log records
+follow the same rules as events: never your labels, your search text or your feedback, never the
+text of an error, and they stop with the same switch.</p>
+
+<p><strong>What is never sent.</strong> The custom labels you write, the text you type into search,
+and what you write in feedback. A search event or log records the <em>length</em> of the query and
+the number of results, never the query itself. Nor is the city or timezone the first-launch
+location lookup found: the card it pre-selects is named like any card you add.</p>
 
 <p><strong>Crash reports.</strong> When the app throws an unhandled error or crashes, the error, its
 stack trace, and the device model, operating system version and app version are sent through the
@@ -95,8 +111,8 @@ for the other.</p>
 
 <p><strong>Turning it off.</strong> <strong>Settings &rarr; Privacy &rarr; Analytics</strong>. When
 it is off the SDK is never started at all, rather than started and silenced. Please note the
-consequence: <em>crash reports travel through the same SDK, so switching analytics off also stops
-crash reports.</em> There is no second channel that stays on.</p>
+consequence: <em>diagnostic logs and crash reports travel through the same SDK, so switching
+analytics off also stops them.</em> There is no second channel that stays on.</p>
 
 <p><strong>Retention.</strong> Events are held by PostHog on their EU infrastructure. On the plan we
 use, PostHog guarantees to retain them for one year. We want to be precise about what that means,
@@ -105,6 +121,7 @@ you that a given event is erased on a fixed date. What we can tell you is that w
 events or copy them anywhere else, that we hold no second store of our own, and that you can stop
 new events being created at any moment in Settings &rarr; Privacy. If you want data erased rather
 than left to age, see <a href="../delete-data/">Deleting your data</a>.</p>
+<p>Diagnostic logs are kept for 14 days and are then deleted by PostHog.</p>
 
 <h2>Approximate location, once, at first launch</h2>
 <p>The first time you open NowLine it tries to pre-select a sensible first city for you. To do that
@@ -144,7 +161,7 @@ answer you.</p>
 
 <h2>Who else receives data</h2>
 <div class="kv">
-<div><dt>PostHog (EU)</dt><dd>Usage analytics and crash reports</dd></div>
+<div><dt>PostHog (EU)</dt><dd>Usage analytics, diagnostic logs and crash reports</dd></div>
 <div><dt>ipapi.co</dt><dd>First-launch approximate location from IP</dd></div>
 <div><dt>freeipapi.com</dt><dd>Fallback for the same, if the first is unavailable</dd></div>
 <div><dt>Apple, Google</dt><dd>App distribution and payment processing</dd></div>
@@ -162,8 +179,8 @@ and we do not knowingly collect personal data from them.</p>
 <p>If you are in the European Economic Area or the United Kingdom, the GDPR gives you rights over
 your personal data. Our legal bases are:</p>
 <ul>
-<li><strong>Legitimate interests</strong> (Art. 6(1)(f)) for the pseudonymous usage analytics and
-    crash reporting that let us find and fix defects and decide what to build. You can object at
+<li><strong>Legitimate interests</strong> (Art. 6(1)(f)) for the pseudonymous usage analytics,
+    diagnostic logs and crash reporting that let us find and fix defects and decide what to build. You can object at
     any time, with one switch, in Settings &rarr; Privacy;</li>
 <li><strong>Performance of a contract</strong> (Art. 6(1)(b)) for handling the in-app purchase.</li>
 </ul>
