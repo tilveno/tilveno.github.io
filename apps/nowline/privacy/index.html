@@ -46,7 +46,7 @@ Armenia.</p>
 <ul>
 <li>There is no account. NowLine never asks you to sign up, sign in, or give us your name or email.</li>
 <li>Your custom labels and settings stay on your device and are not transmitted anywhere. Analytics
-    do name the city or timezone of a card you add, move or remove — as the app's own index names
+    do name the city or time zone of a clock you add, move or remove — as the app's own index names
     it, never by your label.</li>
 <li>Anonymous usage analytics, diagnostic logs and crash reports are collected, and you can turn
     them off in
@@ -58,10 +58,10 @@ Armenia.</p>
 <p>The following never leaves your phone. It is written to the app's private storage — an SQLite
 database and the system preferences store — and is not transmitted to us or to anyone else:</p>
 <ul>
-<li>your list of cards as a whole, its order, and any custom labels you give the cards (the
-    analytics below name one card when it is added, changed or removed; the list is never
+<li>your list of clocks as a whole, its order, and any custom labels you give the clocks (the
+    analytics below name one clock when it is added, changed or removed; the list is never
     uploaded);</li>
-<li>your settings: theme, language, 12- or 24-hour clock, haptics, and the flags that remember
+<li>your settings: theme, language, 12- or 24-hour format, vibration, and the flags that remember
     whether you have seen the tutorial and the rating prompt;</li>
 <li>the latest result of the location lookup described below, with the public IP address it was
     made from.</li>
@@ -79,13 +79,13 @@ analytics SDK. It is not your name, your email, your phone number, your Apple or
 your device's advertising identifier. We cannot use it to work out who you are.</p>
 
 <p><strong>What is sent.</strong> Which features are used — not what you type into them. The events
-are: a card added, deleted, reordered or relabelled; a search performed; the timeline scrubbed;
+are: a clock added, deleted, reordered or relabeled; a search performed; the timeline dragged;
 the paywall shown; a purchase succeeded, failed or was restored; the theme, clock format or
 language changed; the outcome of each location lookup; and how you responded to the
-rating prompt. Each event carries a few technical parameters, such as how many cards you have or
-how many results a search returned. Events about a card — added, deleted, moved or relabelled —
-name that card: its city or zone as the app's own index names it, its timezone, and a random
-identifier of the card.</p>
+rating prompt. Each event carries a few technical parameters, such as how many clocks you have or
+how many results a search returned. Events about a clock — added, deleted, moved or relabeled —
+name that clock: its city or zone as the app's own index names it, its time zone, and a random
+identifier of the clock.</p>
 
 <p><strong>Diagnostic logs.</strong> The app also sends a log of what happens in it, so that a
 defect can be followed from launch to the moment it occurred: how long startup took, screens
@@ -97,8 +97,8 @@ text of an error, and they stop with the same switch.</p>
 
 <p><strong>What is never sent.</strong> The custom labels you write, the text you type into search,
 and what you write in feedback. A search event or log records the <em>length</em> of the query and
-the number of results, never the query itself. Nor is the city or timezone the location
-lookup found: the first card it pre-selects is named like any card you add.</p>
+the number of results, never the query itself. Nor is the city or time zone the location
+lookup found: the first clock it pre-selects is named like any clock you add.</p>
 
 <p><strong>Crash reports.</strong> When the app throws an unhandled error or crashes, the error, its
 stack trace, and the device model, operating system version and app version are sent through the
@@ -110,7 +110,7 @@ only in internal development builds — where text and images are masked regardl
 analytics is not the same as allowing a recording of your screen, so we do not treat one as consent
 for the other.</p>
 
-<p><strong>Turning it off.</strong> <strong>Settings &rarr; Privacy &rarr; Analytics</strong>. When
+<p><strong>Turning it off.</strong> <strong>Settings &rarr; Privacy &rarr; Share usage data</strong>. When
 it is off the SDK is never started at all, rather than started and silenced. Please note the
 consequence: <em>diagnostic logs and crash reports travel through the same SDK, so switching
 analytics off also stops them.</em> There is no second channel that stays on.</p>
@@ -126,12 +126,12 @@ than left to age, see <a href="../delete-data/">Deleting your data</a>.</p>
 
 <h2>Approximate location from your IP address</h2>
 <p>NowLine uses your approximate location for three things: to pre-select a sensible first city the
-first time you open it, to mark the card of the city you are in, and to offer that city at the top
+first time you open it, to mark the clock of the city you are in, and to offer that city at the top
 of search. To find it, the app makes an HTTPS request to
 <a href="https://ipapi.co/privacy/" rel="nofollow noopener">ipapi.co</a>, falling back to
 <a href="https://freeipapi.com/" rel="nofollow noopener">freeipapi.com</a> if that fails. Your
 device's public IP address is visible to that service as part of making the request — that is how
-IP-based geolocation works — and the service returns an approximate city, country and timezone.</p>
+IP-based geolocation works — and the service returns an approximate city, country and time zone.</p>
 <ul>
 <li><strong>When.</strong> Every time you start the app, and again when you return to it after it
     has been in the background for more than an hour; within that hour the answer it already has is
@@ -142,22 +142,22 @@ IP-based geolocation works — and the service returns an approximate city, coun
     city from it before the network replies, and falls back to it when the request fails. A new
     answer replaces it. Clearing the app's data, or uninstalling the app, removes it.</li>
 <li>We do not receive your IP address: it leaves your device only in the request to the location
-    service. Nor do we receive the city or timezone the lookup found — see
+    service. Nor do we receive the city or time zone the lookup found — see
     <em>What is never sent</em> above.</li>
 <li>There is no separate switch for this request. Turning analytics off stops what is sent to
     PostHog, not the location lookup.</li>
 <li>The result is approximate — city-level at best. It is often wrong behind a VPN, which the app
-    detects by cross-checking against your device's own timezone setting.</li>
+    detects by cross-checking against your device's own time zone setting.</li>
 <li><strong>NowLine never requests the GPS or precise-location permission.</strong> There is no
     permission prompt because no device location API is used.</li>
 </ul>
 <p>In the App Store and Google Play questionnaires this is declared as <em>coarse / approximate
 location</em>, shared with a third party, not linked to your identity, and used for app
-functionality and for analytics — analytics because the events about a card name its city, and your
-first card is chosen from where you are.</p>
+functionality and for analytics — analytics because the events about a clock name its city, and your
+first clock is chosen from where you are.</p>
 
 <h2>Purchases</h2>
-<p>NowLine offers one optional one-time in-app purchase, which removes the limit on how many cards
+<p>NowLine offers one optional one-time in-app purchase, which removes the limit on how many clocks
 you can add. It is not a subscription and there is no recurring charge.</p>
 <p>The payment itself is handled entirely by Apple or Google. <strong>We never see your card
 number, billing address, or Apple or Google account.</strong> The store tells the app only whether a
