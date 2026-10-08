@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://tilveno.com/</loc></url>
-  <url><loc>https://tilveno.com/about/</loc></url>
   <url><loc>https://tilveno.com/apps/</loc></url>
   <url><loc>https://tilveno.com/apps/nowline/</loc></url>
   <url><loc>https://tilveno.com/apps/nowline/support/</loc></url>
@@ -9,8 +8,6 @@
   <url><loc>https://tilveno.com/apps/nowline/terms/</loc></url>
   <url><loc>https://tilveno.com/apps/nowline/delete-data/</loc></url>
   <url><loc>https://tilveno.com/support/</loc></url>
-  <url><loc>https://tilveno.com/contact/</loc></url>
   <url><loc>https://tilveno.com/privacy/</loc></url>
   <url><loc>https://tilveno.com/terms/</loc></url>
-  <url><loc>https://tilveno.com/legal/</loc></url>
 </urlset>
