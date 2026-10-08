@@ -33,7 +33,7 @@
 
 <h1>NowLine — Privacy Policy</h1>
 <div class="prose">
-<p class="muted">Effective date: 7 October 2026 &nbsp;&middot;&nbsp; Version 1.1</p>
+<p class="muted">Effective date: 8 October 2026 &nbsp;&middot;&nbsp; Version 1.2</p>
 
 <p>This policy describes how the <strong>NowLine</strong> mobile app for iOS and Android handles your
 data. NowLine is published by Tilveno, an individual entrepreneur registered in the Republic of
@@ -63,7 +63,8 @@ database and the system preferences store — and is not transmitted to us or to
     uploaded);</li>
 <li>your settings: theme, language, 12- or 24-hour clock, haptics, and the flags that remember
     whether you have seen the tutorial and the rating prompt;</li>
-<li>the cached result of the first-launch city lookup described below.</li>
+<li>the latest result of the location lookup described below, with the public IP address it was
+    made from.</li>
 </ul>
 <p>We hold no copy of any of it. There is no account to close and no server-side backup. Deleting
 the app removes all of it from your device. See <a href="../delete-data/">Deleting your data</a>.</p>
@@ -80,7 +81,7 @@ your device's advertising identifier. We cannot use it to work out who you are.<
 <p><strong>What is sent.</strong> Which features are used — not what you type into them. The events
 are: a card added, deleted, reordered or relabelled; a search performed; the timeline scrubbed;
 the paywall shown; a purchase succeeded, failed or was restored; the theme, clock format or
-language changed; the outcome of the first-launch location lookup; and how you responded to the
+language changed; the outcome of each location lookup; and how you responded to the
 rating prompt. Each event carries a few technical parameters, such as how many cards you have or
 how many results a search returned. Events about a card — added, deleted, moved or relabelled —
 name that card: its city or zone as the app's own index names it, its timezone, and a random
@@ -96,8 +97,8 @@ text of an error, and they stop with the same switch.</p>
 
 <p><strong>What is never sent.</strong> The custom labels you write, the text you type into search,
 and what you write in feedback. A search event or log records the <em>length</em> of the query and
-the number of results, never the query itself. Nor is the city or timezone the first-launch
-location lookup found: the card it pre-selects is named like any card you add.</p>
+the number of results, never the query itself. Nor is the city or timezone the location
+lookup found: the first card it pre-selects is named like any card you add.</p>
 
 <p><strong>Crash reports.</strong> When the app throws an unhandled error or crashes, the error, its
 stack trace, and the device model, operating system version and app version are sent through the
@@ -123,24 +124,37 @@ new events being created at any moment in Settings &rarr; Privacy. If you want d
 than left to age, see <a href="../delete-data/">Deleting your data</a>.</p>
 <p>Diagnostic logs are kept for 14 days and are then deleted by PostHog.</p>
 
-<h2>Approximate location, once, at first launch</h2>
-<p>The first time you open NowLine it tries to pre-select a sensible first city for you. To do that
-it makes one HTTPS request to <a href="https://ipapi.co/privacy/" rel="nofollow noopener">ipapi.co</a>,
-falling back to <a href="https://freeipapi.com/" rel="nofollow noopener">freeipapi.com</a> if that
-fails. Your device's public IP address is visible to that service as part of making the request —
-that is how IP-based geolocation works — and the service returns an approximate city, country and
-timezone.</p>
+<h2>Approximate location from your IP address</h2>
+<p>NowLine uses your approximate location for three things: to pre-select a sensible first city the
+first time you open it, to mark the card of the city you are in, and to offer that city at the top
+of search. To find it, the app makes an HTTPS request to
+<a href="https://ipapi.co/privacy/" rel="nofollow noopener">ipapi.co</a>, falling back to
+<a href="https://freeipapi.com/" rel="nofollow noopener">freeipapi.com</a> if that fails. Your
+device's public IP address is visible to that service as part of making the request — that is how
+IP-based geolocation works — and the service returns an approximate city, country and timezone.</p>
 <ul>
-<li>We do not receive or store your IP address. Only the answer is kept, in local storage on your
-    device, so that later launches do not repeat the request.</li>
+<li><strong>When.</strong> Every time you start the app, and again when you return to it after it
+    has been in the background for more than an hour; within that hour the answer it already has is
+    reused. The request is repeated because where you are can change between launches — you travel,
+    or your network changes — and an answer kept forever would mark the wrong city.</li>
+<li><strong>What is kept on your device.</strong> The latest answer, together with the public IP
+    address the service reports back, is kept in local storage on your device: the app shows your
+    city from it before the network replies, and falls back to it when the request fails. A new
+    answer replaces it. Clearing the app's data, or uninstalling the app, removes it.</li>
+<li>We do not receive your IP address: it leaves your device only in the request to the location
+    service. Nor do we receive the city or timezone the lookup found — see
+    <em>What is never sent</em> above.</li>
+<li>There is no separate switch for this request. Turning analytics off stops what is sent to
+    PostHog, not the location lookup.</li>
 <li>The result is approximate — city-level at best. It is often wrong behind a VPN, which the app
     detects by cross-checking against your device's own timezone setting.</li>
 <li><strong>NowLine never requests the GPS or precise-location permission.</strong> There is no
     permission prompt because no device location API is used.</li>
 </ul>
 <p>In the App Store and Google Play questionnaires this is declared as <em>coarse / approximate
-location</em>, shared with a third party, used for app functionality, and not linked to your
-identity.</p>
+location</em>, shared with a third party, not linked to your identity, and used for app
+functionality and for analytics — analytics because the events about a card name its city, and your
+first card is chosen from where you are.</p>
 
 <h2>Purchases</h2>
 <p>NowLine offers one optional one-time in-app purchase, which removes the limit on how many cards
@@ -162,7 +176,7 @@ answer you.</p>
 <h2>Who else receives data</h2>
 <div class="kv">
 <div><dt>PostHog (EU)</dt><dd>Usage analytics, diagnostic logs and crash reports</dd></div>
-<div><dt>ipapi.co</dt><dd>First-launch approximate location from IP</dd></div>
+<div><dt>ipapi.co</dt><dd>Approximate location from IP</dd></div>
 <div><dt>freeipapi.com</dt><dd>Fallback for the same, if the first is unavailable</dd></div>
 <div><dt>Apple, Google</dt><dd>App distribution and payment processing</dd></div>
 </div>
