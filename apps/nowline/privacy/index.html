@@ -33,7 +33,7 @@
 
 <h1>NowLine — Privacy Policy</h1>
 <div class="prose">
-<p class="muted">Effective date: 8 October 2026 &nbsp;&middot;&nbsp; Version 1.2</p>
+<p class="muted">Effective date: 23 October 2026 &nbsp;&middot;&nbsp; Version 1.4</p>
 
 <p>This policy describes how the <strong>NowLine</strong> mobile app for iOS and Android handles your
 data. NowLine is published by Tilveno, an individual entrepreneur registered in the Republic of
@@ -45,9 +45,12 @@ Armenia.</p>
 <h2>The short version</h2>
 <ul>
 <li>There is no account. NowLine never asks you to sign up, sign in, or give us your name or email.</li>
-<li>Your custom labels and settings stay on your device and are not transmitted anywhere. Analytics
-    do name the city or time zone of a clock you add, move or remove — as the app's own index names
-    it, never by your label.</li>
+<li>Your custom labels stay on your device and are not transmitted anywhere. Analytics do name the
+    city or time zone of a clock you add, move or remove — as the app's own index names it, never
+    by your label — and which theme, language, clock format, temperature unit and vibration
+    setting you use, and whether the weather is on.</li>
+<li>Clocks of cities show the weather there. To get it, the app sends the coordinates of those
+    cities — never your own position — to our weather server, which sees your IP address.</li>
 <li>Anonymous usage analytics, diagnostic logs and crash reports are collected, and you can turn
     them off in
     <strong>Settings &rarr; Privacy</strong>.</li>
@@ -61,10 +64,12 @@ database and the system preferences store — and is not transmitted to us or to
 <li>your list of clocks as a whole, its order, and any custom labels you give the clocks (the
     analytics below name one clock when it is added, changed or removed; the list is never
     uploaded);</li>
-<li>your settings: theme, language, 12- or 24-hour format, vibration, and the flags that remember
-    whether you have seen the tutorial and the rating prompt;</li>
+<li>the flags that remember whether you have seen the tutorial and the rating prompt;</li>
+<li>the weather forecast for each city on your clocks, which is deleted 7 days after it was
+    fetched;</li>
 <li>the latest result of the location lookup described below, with the public IP address it was
-    made from.</li>
+    made from (the city it found is named in the diagnostic logs; the IP address is never
+    sent).</li>
 </ul>
 <p>We hold no copy of any of it. There is no account to close and no server-side backup. Deleting
 the app removes all of it from your device. See <a href="../delete-data/">Deleting your data</a>.</p>
@@ -81,24 +86,35 @@ your device's advertising identifier. We cannot use it to work out who you are.<
 <p><strong>What is sent.</strong> Which features are used — not what you type into them. The events
 are: a clock added, deleted, reordered or relabeled; a search performed; the timeline dragged;
 the paywall shown; a purchase succeeded, failed or was restored; the theme, clock format or
-language changed; the outcome of each location lookup; and how you responded to the
+language changed; the outcome of each location lookup; the outcome of each weather update; the
+temperature unit changed; the weather switched on or off; and how you responded to the
 rating prompt. Each event carries a few technical parameters, such as how many clocks you have or
 how many results a search returned. Events about a clock — added, deleted, moved or relabeled —
 name that clock: its city or zone as the app's own index names it, its time zone, and a random
-identifier of the clock.</p>
+identifier of the clock. Events about the weather carry only counts — how many cities were
+updated, from which source, how long it took — never a city or its coordinates.</p>
+
+<p><strong>Your settings.</strong> With analytics on, the app also records the current value of
+six settings — theme, language, 12- or 24-hour format, temperature unit, vibration and whether the
+weather is on — against the same random identifier, so that we can count how many people use each.
+They are sent when the app starts and when you change one of them, and they stop with the same
+switch.</p>
 
 <p><strong>Diagnostic logs.</strong> The app also sends a log of what happens in it, so that a
 defect can be followed from launch to the moment it occurred: how long startup took, screens
 opened, buttons tapped, settings changed (the old and the new value), searches (the length of the
-query and the number of results), how the location lookup went (whether it answered and how long
-it took — not the city or zone it found), and the store's answers during a purchase. Log records
+query and the number of results), how the location lookup went (whether it answered, how long
+it took, and the approximate city, country and time zone it found), which city the app marked
+as yours and offered in search, your device's own time zone setting, how a weather update went
+(the same counts as its event), and the store's answers
+during a purchase. Log records
 follow the same rules as events: never your labels, your search text or your feedback, never the
 text of an error, and they stop with the same switch.</p>
 
 <p><strong>What is never sent.</strong> The custom labels you write, the text you type into search,
 and what you write in feedback. A search event or log records the <em>length</em> of the query and
-the number of results, never the query itself. Nor is the city or time zone the location
-lookup found: the first clock it pre-selects is named like any clock you add.</p>
+the number of results, never the query itself. Nor is your IP address, or the coordinates the location lookup
+returns.</p>
 
 <p><strong>Crash reports.</strong> When the app throws an unhandled error or crashes, the error, its
 stack trace, and the device model, operating system version and app version are sent through the
@@ -128,7 +144,7 @@ than left to age, see <a href="../delete-data/">Deleting your data</a>.</p>
 <p>NowLine uses your approximate location for three things: to pre-select a sensible first city the
 first time you open it, to mark the clock of the city you are in, and to offer that city at the top
 of search. To find it, the app makes an HTTPS request to
-<a href="https://ipapi.co/privacy/" rel="nofollow noopener">ipapi.co</a>, falling back to
+<a href="https://ipwhois.io/privacy" rel="nofollow noopener">ipwho.is</a>, falling back to
 <a href="https://freeipapi.com/" rel="nofollow noopener">freeipapi.com</a> if that fails. Your
 device's public IP address is visible to that service as part of making the request — that is how
 IP-based geolocation works — and the service returns an approximate city, country and time zone.</p>
@@ -141,9 +157,11 @@ IP-based geolocation works — and the service returns an approximate city, coun
     address the service reports back, is kept in local storage on your device: the app shows your
     city from it before the network replies, and falls back to it when the request fails. A new
     answer replaces it. Clearing the app's data, or uninstalling the app, removes it.</li>
-<li>We do not receive your IP address: it leaves your device only in the request to the location
-    service. Nor do we receive the city or time zone the lookup found — see
-    <em>What is never sent</em> above.</li>
+<li>The location lookup does not go through us: your IP address reaches only the location
+    service. The approximate city, country and time zone the lookup found do reach us, in the
+    diagnostic logs above (kept 14 days), so that a wrong city or a missing mark can be traced;
+    they stop with the same switch. Our weather server, described below, is a separate
+    request.</li>
 <li>There is no separate switch for this request. Turning analytics off stops what is sent to
     PostHog, not the location lookup.</li>
 <li>The result is approximate — city-level at best. It is often wrong behind a VPN, which the app
@@ -153,8 +171,37 @@ IP-based geolocation works — and the service returns an approximate city, coun
 </ul>
 <p>In the App Store and Google Play questionnaires this is declared as <em>coarse / approximate
 location</em>, shared with a third party, not linked to your identity, and used for app
-functionality and for analytics — analytics because the events about a clock name its city, and your
-first clock is chosen from where you are.</p>
+functionality and for analytics — analytics because the events about a clock name its city, your first clock is chosen from
+where you are, and the diagnostic logs name the city the lookup found.</p>
+
+<h2>Weather</h2>
+<p>A clock of a city shows the weather there. To get it, the app sends the coordinates of the
+cities on your clocks — the cities, never your own position — over HTTPS to our weather server at
+<code>weather.tilveno.com</code>. The server runs on Cloudflare Workers; Cloudflare runs it for us
+and sees your IP address as part of the request. The server asks
+<a href="https://www.met.no/en/About-us/privacy" rel="nofollow noopener">MET Norway</a> for the
+forecast, or <a href="https://www.weatherapi.com/privacy.aspx" rel="nofollow noopener">WeatherAPI.com</a>
+when MET Norway does not answer. They see only our server, not your IP address.</p>
+<ul>
+<li><strong>When.</strong> When you open the app, return to it, or add a city — and only for the
+    cities whose forecast on your device has expired. A forecast less than an hour old is not
+    asked for again. Clocks of time zones and UTC offsets send nothing.</li>
+<li><strong>What our server keeps.</strong> Each city's forecast, stored under its coordinates
+    until the forecast expires — up to an hour — so that the next request for the same city is
+    answered without asking MET Norway again. Nothing in it tells who asked. Cloudflare keeps the
+    server's logs, which may include your IP address, for 3 days, so that we can find faults; we
+    do not copy them anywhere.</li>
+<li><strong>If our server cannot be reached,</strong> the app asks MET Norway
+    (<code>api.met.no</code>) directly. MET Norway then sees your IP address and the cities'
+    coordinates.</li>
+<li><strong>What is kept on your device.</strong> The forecast of each city, deleted 7 days after
+    it was fetched. Clearing the app's data, or uninstalling the app, removes it.</li>
+<li>The weather can be switched off in <strong>Settings &rarr; Display &rarr; Weather</strong>.
+    When it is off, the app sends no city coordinates to weather.tilveno.com or api.met.no.
+    Turning analytics off stops what is sent to PostHog, not the weather update.</li>
+</ul>
+<p>Your first clock is usually your own city, so the list of cities can hint at where you are. In
+the store questionnaires the weather is part of the <em>approximate location</em> declared above.</p>
 
 <h2>Purchases</h2>
 <p>NowLine offers one optional one-time in-app purchase, which removes the limit on how many clocks
@@ -176,8 +223,11 @@ answer you.</p>
 <h2>Who else receives data</h2>
 <div class="kv">
 <div><dt>PostHog (EU)</dt><dd>Usage analytics, diagnostic logs and crash reports</dd></div>
-<div><dt>ipapi.co</dt><dd>Approximate location from IP</dd></div>
+<div><dt>ipwho.is</dt><dd>Approximate location from IP</dd></div>
 <div><dt>freeipapi.com</dt><dd>Fallback for the same, if the first is unavailable</dd></div>
+<div><dt>Cloudflare</dt><dd>Runs our weather server (weather.tilveno.com)</dd></div>
+<div><dt>MET Norway</dt><dd>Weather forecasts; directly from the app only when our server is unavailable</dd></div>
+<div><dt>WeatherAPI.com</dt><dd>Weather forecasts when MET Norway does not answer; sees only our server</dd></div>
 <div><dt>Apple, Google</dt><dd>App distribution and payment processing</dd></div>
 </div>
 <p style="margin-top:20px">That is the complete list. There are no advertising networks, no
