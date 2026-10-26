@@ -50,13 +50,13 @@ footer{border-top:1px solid #e6e9ee;background:#f3f5f8;padding:44px 0 36px;font-
 .badges img{height:56px;width:auto;display:block}
 @media(max-width:640px){.appheader{gap:16px}.appicon{width:62px;height:62px;border-radius:14px}}
 /* The screenshot strip on /apps/nowline/. It scrolls sideways rather than
-   wrapping into the .cards grid: five phone frames laid out in a grid either
+   wrapping into the .cards grid: eight phone frames laid out in a grid either
    shrink past the point where the screen inside them reads, or push the page's
    own prose below two screens of pictures. Three are visible at 960px, and the
    fourth peeking past the edge is the scroll affordance. No border -- these
-   frames are near-black, and a light rule around one reads as a halo -- the
+   frames are near-white, and a rule around one boxes them off the page -- the
    .appicon shadow instead, so icon and screenshots sit on the page the same
-   way. The background is the frames' own top colour (surfMid0), so the box does
+   way. The background is the frames' own top colour, so the box does
    not flash white while the image loads.
 
    The scrollbar is hidden. It sat under the frames as a grey slab with nothing
@@ -69,7 +69,7 @@ footer{border-top:1px solid #e6e9ee;background:#f3f5f8;padding:44px 0 36px;font-
 .shots{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x proximity;scroll-behavior:smooth;scrollbar-width:none}
 .shots::-webkit-scrollbar{display:none}
 .shot{flex:0 0 272px;padding:0;border:0;background:none;cursor:zoom-in;scroll-snap-align:start;border-radius:12px;line-height:0}
-.shot img{width:272px;height:auto;display:block;border-radius:12px;background:#0c0e1b;box-shadow:0 2px 12px oklch(0.42 0.09 255 / 0.16)}
+.shot img{width:272px;height:auto;display:block;border-radius:12px;background:#f6f8fb;box-shadow:0 2px 12px oklch(0.42 0.09 255 / 0.16)}
 .shot:focus-visible{outline:3px solid oklch(0.42 0.09 255);outline-offset:3px}
 /* The scroll buttons sit over the gutter between frames rather than over a
    frame, and disappear at the end they would do nothing at. */

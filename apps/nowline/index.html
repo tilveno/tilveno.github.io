@@ -5,16 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#fafbfc">
 <title>NowLine: World Clock Timeline | Tilveno</title>
-<meta name="description" content="World clock and time zone converter. Drag one timeline and every city follows. Works offline, with no account and no location permission, in ten languages.">
+<meta name="description" content="World clock and time converter for every time zone. Drag one clock and every city follows, with the weather at the hour you pick. Works offline, no account, no ads.">
 <meta property="og:title" content="NowLine: World Clock Timeline">
-<meta property="og:description" content="World clock and time zone converter. Drag one timeline and every city follows. Works offline, with no account and no location permission, in ten languages.">
+<meta property="og:description" content="World clock and time converter for every time zone. Drag one clock and every city follows, with the weather at the hour you pick. Works offline, no account, no ads.">
 <meta property="og:url" content="https://tilveno.com/apps/nowline/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Tilveno">
 <meta property="og:image" content="https://tilveno.com/assets/nowline-og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="NowLine — world clock and time zone converter">
+<meta property="og:image:alt" content="NowLine — World Clock. Drag one — every city follows.">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://tilveno.com/apps/nowline/">
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
@@ -39,14 +39,14 @@
      the kerning is solved per pair -- see assets/site.css. aria-label carries
      the name so a screen reader says it rather than spelling out seven spans. -->
 <h1 class="wordmark" aria-label="NowLine"><span>N</span><span>o</span><span>w</span><span>L</span><span>i</span><span>n</span><span>e</span></h1>
-<div class="subtitle">Time zones on one timeline</div>
+<div class="subtitle">World clock &amp; time converter</div>
 </div>
 </div>
 
 <div class="prose">
-<p style="font-size:22px">NowLine is a world clock and time zone converter that puts every time zone
-you care about on one shared timeline. Drag it, and every clock moves together — so you are always reading the same moment in every zone,
-instead of doing the arithmetic in your head.</p>
+<p style="font-size:22px">Compare the time anywhere — now, or at any moment you pick. NowLine is a
+world clock and time converter for every time zone, with a live 24-hour timeline on every clock:
+drag one, and all your clocks move together.</p>
 </div>
 
 <!-- Google's own badge artwork, unaltered except for the transparent padding
@@ -58,20 +58,23 @@ instead of doing the arithmetic in your head.</p>
 </div>
 <p class="muted">The App Store version is on its way.</p>
 
-<!-- The five store frames, at half the pixels they are uploaded with. They are the
+<!-- The eight Play frames, at half the pixels they are uploaded with. They are the
      listing's own images, not a second set shot for the web: the app repository
-     composes them once and both stores and this page read the same five.
+     composes them once and Google Play and this page read the same eight.
      Lossless WebP because the frames are drawn, not photographed — flat fills and
-     hairline ticks are what a lossy codec rings around, and lossless costs about 80 kB
+     hairline ticks are what a lossy codec rings around, and lossless costs 55-92 kB
      a frame here. The strip scrolls rather than wraps; the overlay line is baked
      into each image, so alt carries it instead of a caption repeating it. -->
 <div class="shotstrip">
 <div class="shots" role="group" aria-label="NowLine screenshots">
-<button type="button" class="shot"><img src="../../assets/nowline-01-home.webp" width="540" height="960" loading="lazy" decoding="async" alt="All your time zones, in sync — five cities on one timeline, each showing the same moment, with a pin on Los Angeles as the city you are in."></button>
-<button type="button" class="shot"><img src="../../assets/nowline-02-scrub.webp" width="540" height="960" loading="lazy" decoding="async" alt="Drag to explore any moment in time — the timeline pulled ahead to 11:21 PM in Los Angeles, every clock following."></button>
-<button type="button" class="shot"><img src="../../assets/nowline-03-dst.webp" width="540" height="960" loading="lazy" decoding="async" alt="Daylight saving time, visualized — the hour that repeats when clocks go back, marked in blue for Los Angeles and New York."></button>
-<button type="button" class="shot"><img src="../../assets/nowline-04-search.webp" width="540" height="960" loading="lazy" decoding="async" alt="Find any city, offset, or abbreviation — search results for “new”."></button>
-<button type="button" class="shot"><img src="../../assets/nowline-05-midnight.webp" width="540" height="960" loading="lazy" decoding="async" alt="3 themes. 10 languages. — the same five clocks in the Midnight theme."></button>
+<button type="button" class="shot"><img src="../../assets/nowline-01-timeline.webp" width="540" height="960" loading="lazy" decoding="async" alt="All your cities on one timeline — Los Angeles, New York City, London and Seoul at the same moment, each with its weather, a pin on Los Angeles as the city you are in."></button>
+<button type="button" class="shot"><img src="../../assets/nowline-02-drag.webp" width="540" height="960" loading="lazy" decoding="async" alt="Drag one — every city follows: pulling the Los Angeles timeline moves every clock below it."></button>
+<button type="button" class="shot"><img src="../../assets/nowline-03-weather.webp" width="540" height="960" loading="lazy" decoding="async" alt="See the weather at the hour you pick — Seoul now, and five hours later, its forecast with it."></button>
+<button type="button" class="shot"><img src="../../assets/nowline-04-dst.webp" width="540" height="960" loading="lazy" decoding="async" alt="Never miss a clock change — the hour that repeats when clocks go back, marked in blue for Los Angeles and New York."></button>
+<button type="button" class="shot"><img src="../../assets/nowline-05-tomorrow.webp" width="540" height="960" loading="lazy" decoding="async" alt="Know when it’s already tomorrow — a +1 badge on every clock that is on the next date."></button>
+<button type="button" class="shot"><img src="../../assets/nowline-06-search.webp" width="540" height="960" loading="lazy" decoding="async" alt="Find any city out of 30,000 — search results for “new”, each with its time, offset and time zone."></button>
+<button type="button" class="shot"><img src="../../assets/nowline-07-themes.webp" width="540" height="960" loading="lazy" decoding="async" alt="Light, dark or midnight — the same clocks in each of the three themes."></button>
+<button type="button" class="shot"><img src="../../assets/nowline-08-no-ads.webp" width="540" height="960" loading="lazy" decoding="async" alt="No ads. No subscription. — a one-time purchase, and it works offline."></button>
 </div>
 </div>
 
@@ -80,34 +83,37 @@ instead of doing the arithmetic in your head.</p>
 </div>
 <div class="cards">
 <div class="card">
-<h3>One timeline, every zone</h3>
-<p>Drag the timeline sideways and every clock follows. Let go and it drifts back to now after about
-five seconds; double-tap the timeline to snap back immediately.</p>
-</div>
-<div class="card">
-<h3>Works offline</h3>
-<p>Time zone rules and the searchable city index ship inside the app, so clocks, search and the
-timeline all work with no connection.</p>
+<h3>Plan meetings across time zones</h3>
+<p>Drag any timeline sideways and every clock moves in sync: 2 PM in New York is evening in London
+and the middle of the night in Tokyo. Let go and it drifts back to now; double-tap to snap back
+at once.</p>
 </div>
 <div class="card">
 <h3>Daylight saving time, visible</h3>
 <p>Orange marks the hour that is skipped when clocks go forward; blue marks the hour that repeats
-when they go back — the two days a year that break every mental calculation.</p>
+when they go back. Plan near a clock change, and you see it coming.</p>
+</div>
+<div class="card">
+<h3>Weather at the moment you pick</h3>
+<p>Every city shows its sky and temperature now, and the forecast for the hour you drag to. In °C
+or °F, or switched off in Settings.</p>
+</div>
+<div class="card">
+<h3>Find any time zone, offline</h3>
+<p>Over 30,000 cities, plus countries, UTC offsets (+05:30), abbreviations (EST, CET, JST), IANA
+names (America/New_York) and military zones — Zulu time is UTC. The city index and the time zone rules ship inside the app,
+so clocks, search and the timeline need no connection.</p>
 </div>
 <div class="card">
 <h3>Read from where you are</h3>
 <p>A pin marks your own city. Every clock shows how far it is from your time (−7, +2:30) and a +1
-or −1 when it is on another date. Rename any clock to a person, an office or a project.</p>
+or −1 when it is already on another date. Rename any clock to a person, an office or a project.</p>
 </div>
 <div class="card">
-<h3>Ten languages</h3>
-<p>English, German, Spanish, French, Japanese, Korean, Portuguese, Russian, Arabic and Chinese,
-with right-to-left layout where it belongs.</p>
-</div>
-<div class="card">
-<h3>Three themes</h3>
-<p>Light, Dark and Midnight, or follow your system — plus a 12- or 24-hour format and haptic ticks
-you can turn off.</p>
+<h3>Three themes, ten languages</h3>
+<p>Light, Dark and Midnight, or follow your system; a 12- or 24-hour clock; haptic ticks as you
+drag. In English, German, Spanish, French, Japanese, Korean, Portuguese, Russian, Arabic and
+Chinese, right to left where it belongs.</p>
 </div>
 </div>
 
@@ -122,8 +128,8 @@ turned off entirely in <strong>Settings &rarr; Privacy</strong>, and with it off
 started at all. The details are in the <a href="privacy/">Privacy Policy</a>.</p>
 
 <h2>What it costs</h2>
-<p>Three clocks are free. A single one-time purchase removes the limit — it is not a subscription,
-and there is no recurring charge. Nothing is time-limited and nothing expires.</p>
+<p>Up to three clocks are free. With Premium, add as many as you like: a one-time purchase, with
+all future updates included. No subscription, no recurring fees, no ads.</p>
 </div>
 
 <div class="prose faq">

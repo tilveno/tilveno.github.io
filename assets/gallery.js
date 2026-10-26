@@ -3,7 +3,7 @@
  * No dependency on purpose. Everything a gallery library would give us that we
  * actually need -- modality, Esc to close, a backdrop, focus returning to the
  * element that opened it -- is what <dialog>.showModal() already does. What is
- * left is choosing an image and moving between five of them, which is this file.
+ * left is choosing an image and moving between the frames, which is this file.
  *
  * The markup is the source of truth: the dialog is built from the <button
  * class="shot"> elements found in the strip, so adding or removing a frame in
